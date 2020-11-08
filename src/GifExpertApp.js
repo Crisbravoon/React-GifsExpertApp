@@ -1,0 +1,27 @@
+import React, { useState } from 'react'
+import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
+
+export const GifExpertApp = () => {
+
+    const [categories, setCategories] = useState(['Iron Man']);
+
+    return (
+        <>
+            <h5>GifExpertApp</h5>
+            <AddCategory setCategories={setCategories} />
+            <hr />
+
+            <ol>
+                {
+                    categories.map(category => (
+                        <GifGrid
+                            key={category}
+                            category={category} />
+                    ))
+                }
+            </ol>
+        </>
+    );
+
+}
